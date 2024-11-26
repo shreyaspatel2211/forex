@@ -1,0 +1,79 @@
+// General Style
+
+html {
+  box-sizing: border-box;
+}
+*,
+*:before,
+*:after {
+  box-sizing: inherit;
+}
+
+body {
+  background-color: $white;
+  font-size: 16px;
+  font-family: $open-sans;
+  line-height: 24px;
+  font-weight: 400;
+  color: $primary-black2;
+  margin: 0;
+  overflow: hidden;
+  overflow-y: auto;
+}
+
+ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+a {
+  display: inline-block;
+  text-decoration: none;
+  transition: 0.2s ease-in-out;
+  color: $white;
+}
+
+.gadugi {
+  font-family: $Gadugi;
+}
+
+.gadugi-bold {
+  font-family: $Gadugi-bold;
+}
+
+.open-sans {
+  font-family: $open-sans;
+}
+
+.open-sans-light {
+  font-family: $open-sans-light;
+}
+
+.open-sans-medium {
+  font-family: $open-sans-medium;
+}
+
+.open-sans-semibold {
+  font-family: $open-sans-semibold;
+}
+
+.open-sans-bold {
+  font-family: $open-sans-bold;
+}
+
+.open-sans-black {
+  font-family: $open-sans-black;
+}
+
+.tab-active {
+  color: $theme2;
+  text-decoration: underline;
+}
+.tab-inactive {
+  color: $theme1;
+}
+
+.title-shadow {
+  text-shadow: 5px 5px rgba(2, 199, 179, 1);
+}

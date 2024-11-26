@@ -15,6 +15,10 @@ use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 use TCG\Voyager\Facades\Voyager;
 use Wave\Facades\Wave;
+use App\Http\Controllers\CustomerController;
+use App\Http\Controllers\DashboardController;
+use App\Http\Controllers\IndexController;
+use App\Http\Controllers\MoneyTransferController;
 
 // Authentication routes
 Auth::routes();
@@ -24,5 +28,11 @@ Route::group(['prefix' => 'admin'], function () {
     Voyager::routes();
 });
 
+Route::get('/admin', [DashboardController::class, 'index'])->name('voyager.dashboard');
+
+Route::get('/', [IndexController::class, 'index']);
+
+Route::get('/moneytransfer', [MoneyTransferController::class, 'index']);
+
 // Wave routes
-Wave::routes();
+// Wave::routes();

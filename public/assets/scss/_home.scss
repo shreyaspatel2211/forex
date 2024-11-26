@@ -1,0 +1,13 @@
+.review-slider {
+    .slick-dots {
+        bottom: 30px;
+        li {
+            button {
+                &::before {
+                    font-size: 22px;
+                    color: $white;
+                }
+            }
+        }
+    }
+}

@@ -1,0 +1,73 @@
+// Font Family
+
+$Gadugi: "Gadugi";
+$Gadugi-url: url("../../assets/fonts/Gadugi/gadugi-normal.ttf") format("truetype");
+
+$Gadugi-bold: "Gadugi-bold";
+$Gadugi-bold-url: url("../../assets/fonts/Gadugi/gadugi-bold.ttf") format("truetype");
+
+$open-sans: "open-sans";
+$open-sans-url: url("../../assets/fonts/OpenSans/OpenSans-Regular.ttf") format("truetype");
+
+$open-sans-light: "open-sans-light";
+$open-sans-light-url: url("../../assets/fonts/OpenSans/OpenSans-Light.ttf") format("truetype");
+
+$open-sans-medium: "open-sans-medium";
+$open-sans-medium-url: url("../../assets/fonts/OpenSans/OpenSans-Medium.ttf") format("truetype");
+
+$open-sans-semibold: "open-sans-semibold";
+$open-sans-semibold-url: url("../../assets/fonts/OpenSans/OpenSans-SemiBold.ttf") format("truetype");
+
+$open-sans-bold: "open-sans-bold";
+$open-sans-bold-url: url("../../assets/fonts/OpenSans/OpenSans-Bold.ttf") format("truetype");
+
+$open-sans-black: "open-sans-black";
+$open-sans-black-url: url("../../assets/fonts/OpenSans/OpenSans-ExtraBold.ttf") format("truetype");
+
+@font-face {
+  font-family: $Gadugi;
+  font-style: normal;
+  src: $Gadugi-url;
+}
+
+@font-face {
+  font-family: $Gadugi-bold;
+  font-style: normal;
+  src: $Gadugi-bold-url;
+}
+
+@font-face {
+  font-family: $open-sans;
+  font-style: normal;
+  src: $open-sans-url;
+}
+
+@font-face {
+  font-family: $open-sans-light;
+  font-style: normal;
+  src: $open-sans-light-url;
+}
+
+@font-face {
+  font-family: $open-sans-medium;
+  font-style: normal;
+  src: $open-sans-medium-url;
+}
+
+@font-face {
+  font-family: $open-sans-semibold;
+  font-style: normal;
+  src: $open-sans-semibold-url;
+}
+
+@font-face {
+  font-family: $open-sans-bold;
+  font-style: normal;
+  src: $open-sans-bold-url;
+}
+
+@font-face {
+  font-family: $open-sans-black;
+  font-style: normal;
+  src: $open-sans-black-url;
+}

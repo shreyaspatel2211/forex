@@ -85,9 +85,11 @@
             </div>
         </div>
     </div>
+
 @stop
 
 @section('javascript')
+
 
     @if(isset($google_analytics_client_id) && !empty($google_analytics_client_id))
         <script>
@@ -480,3 +482,4 @@
     @endif
 
 @stop
+

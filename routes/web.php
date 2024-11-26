@@ -19,9 +19,14 @@ use App\Http\Controllers\CustomerController;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\IndexController;
 use App\Http\Controllers\MoneyTransferController;
+use App\Http\Controllers\ContactUsController;
 
 // Authentication routes
 Auth::routes();
+
+Route::get('/money-transfer', function () {
+    return view('money-transfer');
+});
 
 // Voyager Admin routes
 Route::group(['prefix' => 'admin'], function () {
@@ -33,6 +38,13 @@ Route::get('/admin', [DashboardController::class, 'index'])->name('voyager.dashb
 Route::get('/', [IndexController::class, 'index']);
 
 Route::get('/moneytransfer', [MoneyTransferController::class, 'index']);
+Route::get('/contactus', [ContactUsController::class, 'index']);
 
+Route::get('/privacypolicy', function () {
+    return view('privacy_policy');
+});
+Route::get('/termsandcondition', function () {
+    return view('terms_and_condition');
+});
 // Wave routes
 // Wave::routes();

@@ -1,4 +1,5 @@
 @include('header')
+
 <div class="page">
   <!-- banner section -->
   <div class="container">
@@ -58,6 +59,11 @@
           </div>
         </div>
 
+        @if(session('success'))
+            <script>
+                toastr.success("{{ session('success') }}");
+            </script>
+        @endif
         <div id="contents">
           <div data-content="forex" class="tab-content p-2 md:p-5 hidden">
             <form>
@@ -97,37 +103,70 @@
             <form action="{{ route('send-money.store') }}" method="POST">
               @csrf
               <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
-                  <div>
-                    <label for="send_money_to" class="block text-sm font-medium text-gray-700">Send Money To</label>
-                    <select id="send_money_to" name="send_money_to" class="mt-1 block w-full border border-theme1 h-12 rounded-md p-2 shadow-sm focus:ring-blue-500 focus:border-blue-500">
-                        {{-- <option value="">Select a country</option> --}}
-                        @foreach($countries as $country)
-                            <option value="{{ $country->id }}" data-currency="{{ $country->currency }}" {{ $country->id == 233 ? 'selected' : '' }}>{{ $country->name }}</option>
-                        @endforeach
-                    </select>
-                  </div>
-                  <div>
-                      <label for="purpose_of_remittance" class="block text-sm font-medium text-gray-700">Purpose of Remittance</label>
-                      <select id="purpose_of_remittance" name="purpose_of_remittance" class="mt-1 block w-full border border-theme1 h-12 rounded-md p-2 shadow-sm focus:ring-blue-500 focus:border-blue-500">
-                      {{-- <option value="">Purpose of Remittance</option> --}}
-                      @foreach($send_money_options as $send_money_option)
-                          <option value="{{ $send_money_option->id }}">{{ $send_money_option->name }}</option>
+                <div>
+                  <label for="name" class="block text-sm font-medium text-gray-700">Your Name</label>
+                  <input id="name" name="name" type="text" placeholder="Enter Your Name" class="mt-1 block w-full border border-theme1 h-12 rounded-md p-2 shadow-sm focus:ring-blue-500 focus:border-blue-500" value="{{ old('name') }}">
+                  @error('name')
+                    <span class="text-red-600 text-sm">{{ $message }}</span>
+                  @enderror
+                </div>
+                <div>
+                  <label for="email" class="block text-sm font-medium text-gray-700">Email</label>
+                  <input id="email" name="email" type="text" placeholder="Enter Your Email" class="mt-1 block w-full border border-theme1 h-12 rounded-md p-2 shadow-sm focus:ring-blue-500 focus:border-blue-500" value="{{ old('email') }}">
+                  @error('email')
+                    <span class="text-red-600 text-sm">{{ $message }}</span>
+                  @enderror
+                </div>
+                <div>
+                  <label for="phone_number" class="block text-sm font-medium text-gray-700">Mobile No.</label>
+                  <input id="phone_number" name="phone_number" type="text" placeholder="Enter Your Mobile No." class="mt-1 block w-full border border-theme1 h-12 rounded-md p-2 shadow-sm focus:ring-blue-500 focus:border-blue-500" value="{{ old('phone_number') }}">
+                  @error('phone_number')
+                    <span class="text-red-600 text-sm">{{ $message }}</span>
+                  @enderror
+                </div>
+                <div>
+                  <label for="send_money_to" class="block text-sm font-medium text-gray-700">Send Money To</label>
+                  <select id="send_money_to" name="send_money_to" class="mt-1 block w-full border border-theme1 h-12 rounded-md p-2 shadow-sm focus:ring-blue-500 focus:border-blue-500">
+                      {{-- <option value="">Select a country</option> --}}
+                      @foreach($countries as $country)
+                          <option value="{{ $country->id }}" data-currency="{{ $country->currency }}" data-flag="{{ $country->emoji }}" {{ $country->id == 233 ? 'selected' : '' }}>{{ $country->name }}</option>
                       @endforeach
-                    </select>
-                  </div>
-                  <div>
-                      <label id="currency-label" for="amount" class="block text-sm font-medium text-gray-700">Send USD</label>
-                      <input id="amount" name="amount" type="number" placeholder="Enter amount" class="mt-1 block w-full border border-theme1 h-12 rounded-md p-2 shadow-sm focus:ring-blue-500 focus:border-blue-500" value="1000">
-                  </div>
-                  <div>
-                    <label for="city" class="block text-sm font-medium text-gray-700">Choose City</label>
-                    <select id="city" name="city" class="mt-1 block w-full border border-theme1 h-12 rounded-md p-2 shadow-sm focus:ring-blue-500 focus:border-blue-500">
-                      {{-- <option value="">Select Your City</option> --}}
-                      @foreach($topcities as $topcity)
-                          <option value="{{ $topcity->id }}">{{ $topcity->city_id }}</option>
-                      @endforeach
-                    </select>
-                  </div>
+                  </select>
+                  @error('send_money_to')
+                    <span class="text-red-600 text-sm">{{ $message }}</span>
+                  @enderror
+                </div>
+                <div>
+                  <label for="purpose_of_remittance" class="block text-sm font-medium text-gray-700">Purpose of Remittance</label>
+                  <select id="purpose_of_remittance" name="purpose_of_remittance" class="mt-1 block w-full border border-theme1 h-12 rounded-md p-2 shadow-sm focus:ring-blue-500 focus:border-blue-500">
+                    {{-- <option value="">Purpose of Remittance</option> --}}
+                    @foreach($send_money_options as $send_money_option)
+                        <option value="{{ $send_money_option->id }}" {{ old('purpose_of_remittance') == $send_money_option->id ? 'selected' : '' }}>{{ $send_money_option->name }}</option>
+                    @endforeach
+                  </select>
+                  @error('purpose_of_remittance')
+                    <span class="text-red-600 text-sm">{{ $message }}</span>
+                  @enderror
+                </div>
+                <div>
+                  <label id="currency-label" for="amount" class="block text-sm font-medium text-gray-700">Send USD</label>
+                  <input id="amount" name="amount" type="number" placeholder="Enter amount" class="currency-input pl-10 w-full border border-theme1 h-12 rounded-md p-2 shadow-sm focus:ring-blue-500 focus:border-blue-500" value="{{ old('amount', 1000) }}">
+                  @error('amount')
+                    <span class="text-red-600 text-sm">{{ $message }}</span>
+                  @enderror
+                </div>
+                <div>
+                  <label for="city" class="block text-sm font-medium text-gray-700">Choose City</label>
+                  <select id="city" name="city" class="mt-1 block w-full border border-theme1 h-12 rounded-md p-2 shadow-sm focus:ring-blue-500 focus:border-blue-500">
+                    {{-- <option value="">Select Your City</option> --}}
+                    @foreach($topcities as $topcity)
+                        <option value="{{ $topcity->id }}" {{ old('city') == $topcity->id ? 'selected' : '' }}>{{ $topcity->city_id }}</option>
+                    @endforeach
+                  </select>
+                  @error('city')
+                    <span class="text-red-600 text-sm">{{ $message }}</span>
+                  @enderror
+                </div>
               </div>
               <span id="converted-amount" class="open-sans block mt-2 w-full text-right text-xs text-theme1">is approximately <strong class="text-theme2">84,940 INR</strong></span>
               <br />
@@ -331,14 +370,30 @@
   </div>
 </div>
 
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/js/toastr.min.js"></script>
+    
+@if(session('success'))
+  <script>
+      toastr.success("{{ session('success') }}", "Success", {
+          "positionClass": "toast-top-right", 
+          "closeButton": true,               
+          "progressBar": true,               
+          "timeOut": "5000",                 
+      });
+  </script>
+@endif
+
+
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>     
 <script>
   $(document).ready(function() {
       function updateCurrencyLabel() {
         var currency = $('#send_money_to option:selected').data('currency');
-        
+        var flag = $('#send_money_to option:selected').data('flag');
+
         if (currency) {
-          $('#currency-label').text('Send ' + currency);
+          $('#currency-label').text('Send ' + currency + ' ' + flag);
         }
       }
 

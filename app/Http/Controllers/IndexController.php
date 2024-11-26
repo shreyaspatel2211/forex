@@ -26,7 +26,7 @@ class IndexController extends Controller
         $popular_services = Service::where('service_type', 'popular_services')->get();
         $study_abroad_services = Service::where('service_type', 'study_abroad')->get();
 
-        $countries = Country::all();
+        $countries = Country::where('show_in_send_money_form', 1)->get();
         $topcities = TopCity::all();
         $send_money_options = SendMoneyOption::all();
 

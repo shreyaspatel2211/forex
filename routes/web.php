@@ -19,6 +19,7 @@ use App\Http\Controllers\CustomerController;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\IndexController;
 use App\Http\Controllers\MoneyTransferController;
+use App\Http\Controllers\SendMoneyAbroadController;
 
 // Authentication routes
 Auth::routes();
@@ -33,6 +34,10 @@ Route::get('/admin', [DashboardController::class, 'index'])->name('voyager.dashb
 Route::get('/', [IndexController::class, 'index']);
 
 Route::get('/moneytransfer', [MoneyTransferController::class, 'index']);
+
+Route::post('/forex-transactions', [SendMoneyAbroadController::class, 'store'])->name('send-money.store');
+
+Route::post('/get-converted-amount', [IndexController::class, 'getConvertedAmount'])->name('get.converted.amount');
 
 // Wave routes
 // Wave::routes();

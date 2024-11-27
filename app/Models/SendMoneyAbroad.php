@@ -14,7 +14,10 @@ class SendMoneyAbroad extends Model
         'country', 
         'purpose', 
         'amount', 
-        'city'
+        'city',
+        'name',
+        'email',
+        'phone_number'
     ];
 
 }

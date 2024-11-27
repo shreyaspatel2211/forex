@@ -19,6 +19,7 @@ use App\Http\Controllers\CustomerController;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\IndexController;
 use App\Http\Controllers\MoneyTransferController;
+use App\Http\Controllers\ContactUsController;
 use App\Http\Controllers\SendMoneyAbroadController;
 
 // Authentication routes
@@ -34,7 +35,14 @@ Route::get('/admin', [DashboardController::class, 'index'])->name('voyager.dashb
 Route::get('/', [IndexController::class, 'index']);
 
 Route::get('/moneytransfer', [MoneyTransferController::class, 'index']);
+Route::get('/contactus', [ContactUsController::class, 'index']);
 
+Route::get('/privacypolicy', function () {
+    return view('privacy_policy');
+});
+Route::get('/termsandcondition', function () {
+    return view('terms_and_condition');
+});
 Route::post('/forex-transactions', [SendMoneyAbroadController::class, 'store'])->name('send-money.store');
 
 Route::post('/get-converted-amount', [IndexController::class, 'getConvertedAmount'])->name('get.converted.amount');

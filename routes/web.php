@@ -32,7 +32,7 @@ Route::group(['prefix' => 'admin'], function () {
 
 Route::get('/admin', [DashboardController::class, 'index'])->name('voyager.dashboard');
 
-Route::get('/', [IndexController::class, 'index']);
+Route::get('/', [IndexController::class, 'index'])->name('home');
 
 Route::get('/moneytransfer', [MoneyTransferController::class, 'index']);
 Route::get('/contactus', [ContactUsController::class, 'index']);

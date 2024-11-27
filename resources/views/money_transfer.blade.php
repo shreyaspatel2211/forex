@@ -6,10 +6,12 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Currency Exchange in India Made Easy</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+    <link rel="stylesheet" href="forexviews/styles.css">
+
 
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
 <style>
-    /* General styles */
+    
     body {
         font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
         margin: 0;
@@ -90,24 +92,52 @@
     }
 
     /* Main container styling */
+    /* Media query for screens with width <= 768px (mobile) */
+@media (max-width: 768px) {
+    .trust-info {
+        padding: 15px; 
+        gap: 10px;
+        flex-direction: column; /* Stack items vertically */
+    }
+
+    .trust-item {
+        flex: 1 1 calc(100% - 20px); /* Take full width */
+        max-width: 100%; 
+        padding: 10px; 
+    }
+
+    .trust-heading {
+        font-size: 18px; 
+    }
+
+    .trust-details {
+        font-size: 12px; 
+    }
+
+    .trust-score {
+        font-size: 18px; 
+    }
+}
+
+/* Default layout for screens larger than 768px */
 .trust-info {
     display: flex;
-    /* flex-wrap: wrap; */
-    justify-content: space-around;
+    flex-wrap: wrap; /* Ensure items wrap on smaller screens */
+    justify-content: space-between; /* Distribute items horizontally */
+    align-items: center; /* Center items vertically if needed */
     background: linear-gradient(135deg, #0D8478, #1C5553);
-    padding: 30px;
+    padding: 20px; 
     border-radius: 12px;
     box-shadow: 0px 6px 15px rgba(0, 0, 0, 0.2);
     color: #ffffff;
-    gap: 20px;
+    gap: 15px; /* Space between items */
 }
 
-/* Individual trust item styling */
 .trust-item {
     text-align: center;
-    
-    flex: 1 1 300px;
-    padding: 20px;
+    flex: 1 1 calc(33% - 40px); /* 3 items per row, with space in between */
+    max-width: 300px; 
+    padding: 15px; 
     border-radius: 8px;
     background-color: rgba(0, 0, 0, 0.2);
     transition: transform 0.3s ease, box-shadow 0.3s ease;
@@ -119,40 +149,147 @@
     box-shadow: 0px 10px 20px rgba(0, 0, 0, 0.4);
 }
 
-/* Trust heading */
 .trust-heading {
-    font-size: 24px;
+    font-size: 20px; 
     font-weight: bold;
     margin-bottom: 10px;
 }
 
-/* Trust details */
 .trust-details {
-    font-size: 16px;
-    margin-bottom: 15px;
+    font-size: 14px; 
+    margin-bottom: 10px;
 }
 
-/* Trust rating styling */
 .trust-rating {
-    font-size: 20px;
+    font-size: 18px; 
     font-weight: bold;
     display: flex;
     flex-direction: column;
     align-items: center;
 }
 
-/* Trust score */
 .trust-score {
-    color: #FFD700; /* Gold for ratings */
-    font-size: 22px;
+    color: #FFD700; 
+    font-size: 20px;
     margin-bottom: 5px;
 }
 
-/* Trust source */
 .trust-source {
-    font-size: 14px;
+    font-size: 12px; 
     color: #e0e0e0;
 }
+
+
+:root {
+    --theme-dark: #001e37;
+    --theme-accent: #0D8478;
+    --theme-light: #f9f9f9;
+    --box-shadow-light: rgba(0, 0, 0, 0.1);
+    --box-shadow-dark: rgba(0, 0, 0, 0.2);
+}
+
+/* Customer Experience Section */
+.user-experiences {
+    background-color: var(--theme-light); /* White background for the section */
+    color: var(--theme-dark);              /* Text color */
+    padding: 4rem 2rem;
+    border-radius: 12px;
+    box-shadow: 0px 6px 15px var(--box-shadow-light);
+}
+
+/* Heading Styling */
+.user-experiences h2 {
+    color: var(--theme-dark);
+    font-size: 2.5rem;
+    font-weight: bold;
+    text-align: center;
+    margin-bottom: 3rem;
+    letter-spacing: 1px;
+}
+
+/* Experience Cards Styling */
+.experience {
+    background-color: var(--theme-light);
+    color: var(--theme-dark);
+    padding: 2rem;
+    border-radius: 10px;
+    width: 18rem; /* Set a fixed width for the boxes */
+    box-shadow: 0 6px 15px var(--box-shadow-light);
+    transition: transform 0.3s ease, box-shadow 0.3s ease, background-color 0.3s ease;
+}
+
+/* Hover Effects for Experience Cards */
+.experience:hover {
+    background-color: var(--theme-accent); /* Change to accent color */
+    color: white; /* Text color changes to white */
+    box-shadow: 0 8px 20px var(--box-shadow-dark);
+    cursor: pointer;
+    transform: translateY(-8px); /* Lift effect on hover */
+}
+
+/* Customer Text Styling */
+.experience p {
+    font-size: 1.1rem;
+    line-height: 1.6;
+    color: var(--theme-dark);
+}
+
+.experience p:first-child {
+    font-style: italic; /* Style the quote text */
+    color: var(--theme-dark); /* Keep the quote in dark text */
+}
+
+.experience p.font-semibold {
+    margin-top: 1rem;
+    font-size: 1.25rem;
+    font-weight: 600;
+    text-align: center;
+    color: var(--theme-accent); /* Highlight the customer's name with accent color */
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .user-experiences {
+        padding: 3rem 1.5rem;
+    }
+
+    .user-experiences h2 {
+        font-size: 2rem; /* Smaller heading on mobile */
+    }
+
+    .experience {
+        width: 90%; /* Full width for smaller screens */
+        margin: 0 auto; /* Center the cards */
+    }
+}
+
+
+/* Media Query for Mobile */
+@media (max-width: 768px) {
+    .trust-info {
+        padding: 15px; 
+        gap: 10px; 
+    }
+
+    .trust-item {
+        flex: 1 1 calc(100% - 20px); 
+        max-width: 100%; 
+        padding: 10px; 
+    }
+
+    .trust-heading {
+        font-size: 18px; 
+    }
+
+    .trust-details {
+        font-size: 12px; 
+    }
+
+    .trust-score {
+        font-size: 18px; 
+    }
+}
+
 
     /* Exchange form styles */
     .exchange-form {
@@ -228,44 +365,14 @@
         background-color: #001e37;
     }
     .customer-heading {
-    text-align: center; /* Center the heading */
-    color: #0D8478; /* Apply the desired color */
-    font-weight: bold; /* Ensure the heading is bold */
-    font-size: 2rem; /* Adjust the font size as needed */
-    margin-bottom: 2rem; /* Add space below the heading */
-    text-transform: capitalize; /* Optional: Capitalize each word */
-}
+    text-align: center; 
+    color: #0D8478; 
+    font-weight: bold; 
+    font-size: 2rem; 
+    margin-bottom: 2rem; 
+    text-transform: capitalize; 
 
     
-
-    
-    
-                .reason {
-                    background-color: #001e37; /* Default box color */
-                    color: white;             /* Text color */
-                    transition: transform 0.3s ease, box-shadow 0.3s ease, background-color 0.3s ease; /* Smooth transition */
-                }
-            
-                .reason:hover {
-                    background-color: #0D8478; /* Hover box color */
-                    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
-                    cursor: pointer;          /* Pointer cursor on hover */
-                    transform: translateY(-10px); /* Slight lift effect */
-                }
-            
-                .experience {
-                    background-color: #001e37; /* Default box color */
-                    color: white;              /* Text color */
-                    transition: transform 0.3s ease, box-shadow 0.3s ease, background-color 0.3s ease; /* Smooth transition */
-                }
-            
-                .experience:hover {
-                    background-color: #0D8478; /* Hover box color */
-                    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2); /* Subtle shadow effect */
-                    cursor: pointer;          /* Pointer cursor on hover */
-                    transform: translateY(-10px); /* Slight lift effect */
-                }
-            
     /* Responsive styles */
     @media (max-width: 768px) {
         .container-1 {
@@ -462,7 +569,19 @@
         </div>
     </div>
 
-
+    <div class="info-section" style="background-color: white; text-align: center; padding: 20px;">
+        <!-- Bold Centered Text -->
+        <div class="main-text" style="font-size: 18px; font-weight: bold; margin-bottom: 10px;">
+            600+ RBI Authorized Exchange Houses on the Platform
+        </div>
+        <!-- Powered by Line with Bank Names -->
+        <div class="powered-by" style="font-size: 16px; font-weight: 500; display: inline-flex; align-items: center; justify-content: center; gap: 10px;">
+            <span>Powered by leading banks:</span>
+            <span style="color: #FF5733; font-weight: bold;">ICICI Bank</span> <!-- ICICI Theme Color -->
+            <span style="color: #2D5DB6; font-weight: bold;">RBL Bank</span> <!-- RBL Theme Color -->
+        </div>
+    </div>
+    
 
     <div class="container py-10">
         <div class="container-2">
@@ -495,29 +614,28 @@
         </div>
     </div>
     
-            
-            <!-- User Experiences Section -->
-            <div class="user-experiences mt-16 p-8 rounded-lg shadow-lg" style="background-color: white; color: black;">
-                <h2 class="customer-heading">What Our Customers Say</h2>
-
-                <div class="flex flex-wrap justify-center gap-8">
-                    <!-- Customer Experience Boxes -->
-                    <div class="experience p-6 rounded-lg shadow-lg w-72 transition-all transform hover:scale-105">
-                        <p class="text-lg">"I used Extravel Money to get USD for my trip. The rates were great, and the process was so simple!"</p>
-                        <p class="font-semibold mt-3 text-xl">John Doe</p>
-                    </div>
-                    <div class="experience p-6 rounded-lg shadow-lg w-72 transition-all transform hover:scale-105">
-                        <p class="text-lg">"Fantastic service! The currency was delivered to my doorstep in just 24 hours. Highly recommend!"</p>
-                        <p class="font-semibold mt-3 text-xl">Jane Smith</p>
-                    </div>
-                    <div class="experience p-6 rounded-lg shadow-lg w-72 transition-all transform hover:scale-105">
-                        <p class="text-lg">"I needed foreign currency for my business trip, and Extravel Money made it incredibly easy. Excellent customer support!"</p>
-                        <p class="font-semibold mt-3 text-xl">Mike Johnson</p>
-                    </div>
-                </div>
+    
+    <!-- User Experiences Section -->
+    <div class="user-experiences mt-16 p-8 rounded-lg shadow-lg" style="background-color: white; color: black;">
+        <h2 class="font-bold mb-8 text-3xl">What Our Customers Say</h2>
+        <div class="flex flex-wrap justify-center gap-8">
+            <!-- Customer Experience Boxes -->
+            <div class="experience p-6 rounded-lg shadow-lg w-72 transition-all transform hover:scale-105">
+                <p class="text-lg">"I used Extravel Money to get USD for my trip. The rates were great, and the process was so simple!"</p>
+                <p class="font-semibold mt-3 text-xl">John Doe</p>
             </div>
-            
-            <!-- CSS -->
+            <div class="experience p-6 rounded-lg shadow-lg w-72 transition-all transform hover:scale-105">
+                <p class="text-lg">"Fantastic service! The currency was delivered to my doorstep in just 24 hours. Highly recommend!"</p>
+                <p class="font-semibold mt-3 text-xl">Jane Smith</p>
+            </div>
+            <div class="experience p-6 rounded-lg shadow-lg w-72 transition-all transform hover:scale-105">
+                <p class="text-lg">"I needed foreign currency for my business trip, and Extravel Money made it incredibly easy. Excellent customer support!"</p>
+                <p class="font-semibold mt-3 text-xl">Mike Johnson</p>
+            </div>
+        </div>
+    </div>
+    
+    
             
             
 <div class="press-section p-8 text-center bg-white">
@@ -607,72 +725,105 @@
 </div>
 <style>
     :root {
-        --theme-dark: #001e37;
-        --theme-accent: #0D8478;
-        --theme-light: #f9f9f9;
-    }
+    --theme-dark: #001e37;
+    --theme-accent: #0D8478;
+    --theme-light: #f9f9f9;
+    --theme-border: #ddd;
+}
 
-    /* Section Styling */
-    .currency-exchange-section {
-        background-color: var(--theme-light);
-        padding: 2rem 1.5rem;
-        text-align: center;
-        border: 1px solid var(--theme-accent);
-        border-radius: 8px;
-        box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
-    }
+/* Section Styling */
+.currency-exchange-section {
+    background-color: var(--theme-light);
+    padding: 2.5rem 1.5rem;
+    text-align: center;
+    border: 1px solid var(--theme-border);
+    border-radius: 12px;
+    box-shadow: 0px 6px 15px rgba(0, 0, 0, 0.1);
+    max-width: 1200px;
+    margin: 0 auto; /* Center the section on larger screens */
+}
 
-    /* Heading Styling */
-    .section-title {
-        color: var(--theme-dark);
-        font-size: 2rem;
-        font-weight: bold;
-        text-transform: uppercase;
-        letter-spacing: 1px;
-        display: inline-block;
-        border-bottom: 3px solid var(--theme-accent);
-        margin-bottom: 2rem;
-        padding-bottom: 0.3rem;
-    }
+/* Heading Styling */
+.section-title {
+    color: var(--theme-dark);
+    font-size: 2.2rem;
+    font-weight: bold;
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+    display: inline-block;
+    border-bottom: 4px solid var(--theme-accent);
+    margin-bottom: 2.5rem;
+    padding-bottom: 0.5rem;
+}
 
-    /* Content Styling */
+/* Content Styling */
+.currency-exchange-content {
+    display: flex;
+    justify-content: space-between;
+    gap: 2rem;
+    flex-wrap: wrap;
+}
+
+/* Content Block Styling */
+.content-block {
+    background-color: var(--theme-dark);
+    color: white;
+    padding: 2rem;
+    border-radius: 10px;
+    text-align: left;
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    flex: 1 1 calc(33% - 2rem); /* Blocks take up 1/3 of the width */
+    max-width: 350px; /* A bit larger max width */
+    margin-bottom: 2rem;
+}
+
+/* Hover effect */
+.content-block:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+}
+
+.content-title {
+    font-size: 1.6rem;
+    font-weight: bold;
+    color: var(--theme-accent);
+    margin-bottom: 1rem;
+}
+
+.content-block ul {
+    list-style: inside square;
+    padding-left: 1rem; /* Better padding for list items */
+}
+
+.content-block ul li {
+    margin: 0.8rem 0;
+    color: white;
+    font-size: 1rem;
+}
+
+/* Media query for small screens */
+@media (max-width: 768px) {
     .currency-exchange-content {
-        display: flex;
         flex-direction: column;
-        gap: 2rem;
+        align-items: center;
     }
 
     .content-block {
-        background-color: var(--theme-dark);
-        color: white;
-        padding: 1.5rem;
-        border-radius: 10px;
-        text-align: left;
-        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-        transition: transform 0.3s ease, box-shadow 0.3s ease;
+        flex: 1 1 100%; /* Full width for content blocks */
+        max-width: 100%;
+        margin-bottom: 1.5rem; /* Add space between blocks */
     }
 
-    .content-block:hover {
-        transform: translateY(-5px);
-        box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
+    .section-title {
+        font-size: 1.8rem; /* Smaller title font on smaller screens */
     }
 
     .content-title {
-        font-size: 1.5rem;
-        font-weight: bold;
-        color: var(--theme-accent);
-        margin-bottom: 0.8rem;
+        font-size: 1.4rem; /* Adjust content title font for mobile */
     }
+}
 
-    .content-block ul {
-        list-style: inside square;
-        padding-left: 0;
-    }
-
-    .content-block ul li {
-        margin: 0.5rem 0;
-        color: white;
-    }
 </style>
             
 <div class="procedure-section">
@@ -887,105 +1038,92 @@
     <h2 class="section-title">Top Cities in India We Serve</h2>
     <div class="cities-list">
         <div class="city-item">
-            <div class="city-icon">&#9733;</div> <!-- Star Icon -->
             <h3>Mumbai</h3>
             <p>The financial capital of India, known for its vibrant nightlife and Bollywood.</p>
         </div>
         <div class="city-item">
-            <div class="city-icon">&#9733;</div> <!-- Star Icon -->
             <h3>Delhi</h3>
             <p>The capital city with a rich history and modern infrastructure.</p>
         </div>
         <div class="city-item">
-            <div class="city-icon">&#9733;</div> <!-- Star Icon -->
             <h3>Bangalore</h3>
             <p>The tech hub of India, known for its startups and cool weather.</p>
         </div>
         <div class="city-item">
-            <div class="city-icon">&#9733;</div> <!-- Star Icon -->
             <h3>Chennai</h3>
             <p>Known for its cultural heritage and stunning coastal beauty.</p>
         </div>
         <div class="city-item">
-            <div class="city-icon">&#9733;</div> <!-- Star Icon -->
             <h3>Kolkata</h3>
             <p>The cultural capital, famous for its colonial architecture and literary heritage.</p>
         </div>
         <div class="city-item">
-            <div class="city-icon">&#9733;</div> <!-- Star Icon -->
             <h3>Hyderabad</h3>
             <p>Known for its historical sites and the world-famous Hyderabadi biryani.</p>
         </div>
     </div>
 </div>
 
-
 <style>
     /* General Section Styling */
     .top-cities-section {
-    background-color: #f8f9fa; /* Light gray background */
-    color: #333; /* Text color */
-    padding: 40px 20px;
-    border-radius: 8px;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Subtle shadow */
-    text-align: center;
-    max-width: 800px;
-    margin: 0 auto; /* Center align */
-}
+        background-color: #f0f4f8; /* Light background color */
+        color: #333; /* Text color */
+        padding: 40px 20px;
+        border-radius: 12px;
+        box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1); /* Enhanced shadow */
+        text-align: center;
+        width: 100%;
+        padding-left: 0;
+        padding-right: 0;
+    }
 
-.section-title {
-    font-size: 28px;
-    font-weight: bold;
-    color:#009688; /* Highlight color */
-    margin-bottom: 30px;
-}
+    .section-title {
+        font-size: 32px;
+        font-weight: 700;
+        color: #00796b; /* Teal color to match the theme */
+        margin-bottom: 40px;
+    }
 
-.cities-list {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 20px;
-    justify-content: center; /* Center items */
-}
+    .cities-list {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 20px;
+        justify-content: space-evenly; /* Evenly spaced items */
+    }
 
-.city-item {
-    background-color: #ffffff; /* White box */
-    border: 2px solid#009688; /* Border color to match highlight */
-    border-radius: 8px;
-    padding: 20px;
-    width: 250px;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Light shadow */
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
-}
+    .city-item {
+        background-color: #ffffff;
+        border: 2px solid #00796b; /* Teal border to match theme */
+        border-radius: 10px;
+        padding: 20px;
+        width: 250px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Slight shadow */
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
 
-.city-item:hover {
-    transform: translateY(-5px); /* Lift on hover */
-    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2); /* Intense shadow */
-}
+    .city-item:hover {
+        transform: translateY(-5px); /* Lift on hover */
+        box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2); /* Intense shadow */
+    }
 
-.city-icon {
-    font-size: 32px;
-    color: #ffc107; /* Gold color for icons */
-    margin-bottom: 10px;
-}
+    .city-item h3 {
+        font-size: 22px;
+        font-weight: 600;
+        margin-bottom: 12px;
+        color: #00796b; /* Teal text for city names */
+    }
 
-.city-item h3 {
-    font-size: 20px;
-    font-weight: bold;
-    margin-bottom: 10px;
-    color: #007bff; /* Highlight color */
-}
-
-.city-item p {
-    font-size: 16px;
-    line-height: 1.5;
-    color: #555; /* Softer text color */
-}
-
+    .city-item p {
+        font-size: 16px;
+        line-height: 1.5;
+        color: #555; /* Softer text color */
+    }
 
     /* Responsive Design */
     @media (max-width: 768px) {
         .top-cities-section {
-            padding: 40px 20px;
+            padding: 40px 10px;
         }
 
         .cities-list {
@@ -993,10 +1131,12 @@
         }
 
         .city-item {
-            width: 90%;
+            width: 90%; /* Full width for smaller screens */
+            margin: 10px 0; /* Add margin between items */
         }
     }
 </style>
+
 <script>
     document.addEventListener('DOMContentLoaded', () => {
         const forexTab = document.getElementById('forexTab');

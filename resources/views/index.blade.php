@@ -70,7 +70,7 @@
               <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
                 <div class="relative">
                   <label for="forex-amount" class="block text-sm font-medium text-gray-700">Choose your Travel Destination</label>
-                  <input id="forex-amount" type="number" placeholder="Enter amount" 
+                  <input id="forex-amount" type="number" placeholder="Choose Your Travel Destination" 
                     class="mt-1 block w-full border border-theme1 h-12 rounded-md p-2 shadow-sm focus:ring-blue-500 focus:border-blue-500 !pr-10">
                     <div class="absolute right-2 top-9 cursor-pointer">
                       <svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -80,17 +80,17 @@
                 </div>
                 <div class="">
                   <label for="forex-amount" class="block text-sm font-medium text-gray-700">Choose Product</label>
-                  <input id="forex-amount" type="number" placeholder="Enter amount" 
+                  <input id="forex-amount" type="number" placeholder="Choose Product" 
                     class="mt-1 block w-full border border-theme1 h-12 rounded-md p-2 shadow-sm focus:ring-blue-500 focus:border-blue-500">
                 </div>
                 <div class="">
                   <label for="forex-amount" class="block text-sm font-medium text-gray-700">Choose Currency</label>
-                  <input id="forex-amount" type="number" placeholder="Enter amount" 
+                  <input id="forex-amount" type="number" placeholder="Choose currency" 
                     class="mt-1 block w-full border border-theme1 h-12 rounded-md p-2 shadow-sm focus:ring-blue-500 focus:border-blue-500">
                 </div>
                 <div class="">
                   <label for="forex-amount" class="block text-sm font-medium text-gray-700">Buy USD</label>
-                  <input id="forex-amount" type="number" placeholder="Enter amount" 
+                  <input id="forex-amount" type="number" placeholder="Buy USD" 
                     class="mt-1 block w-full border border-theme1 h-12 rounded-md p-2 shadow-sm focus:ring-blue-500 focus:border-blue-500">
                 </div>
               </div>
@@ -356,7 +356,7 @@
       <!-- Logo -->
       <div class="text-white font-bold text-xl">
         <a href="#" class="w-[160px] md:w-[212px]">
-          <img src="{{ asset('dist/assets/images/logo.svg') }}" alt="">
+          <img src="{{ Voyager::image(setting('site.logo')) }}" alt="">
         </a>
       </div>
       

@@ -270,7 +270,7 @@
       <div class="flex mb-8">
         <h2 class="w-full mb-3 md:mb-0 text-[42px] md:text-[72px] gadugi-bold text-theme1 title-shadow">What we Provide you !</h2>
       </div>
-      <div class="flex flex-col mf:flex-row items-center gap-8">
+      <div class="flex flex-col md:flex-row items-center gap-8">
         <div class="w-full md:w-2/3">
           @foreach($firstPart as $feature)
             <div class="flex items-center px-4 py-2 md:py-3 border-[6px] border-[#001E3769] mb-6 md:mb-[46px] rounded-full">

@@ -20,13 +20,10 @@ use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\IndexController;
 use App\Http\Controllers\MoneyTransferController;
 use App\Http\Controllers\ContactUsController;
+use App\Http\Controllers\SendMoneyAbroadController;
 
 // Authentication routes
 Auth::routes();
-
-Route::get('/money-transfer', function () {
-    return view('money-transfer');
-});
 
 // Voyager Admin routes
 Route::group(['prefix' => 'admin'], function () {
@@ -46,5 +43,9 @@ Route::get('/privacypolicy', function () {
 Route::get('/termsandcondition', function () {
     return view('terms_and_condition');
 });
+Route::post('/forex-transactions', [SendMoneyAbroadController::class, 'store'])->name('send-money.store');
+
+Route::post('/get-converted-amount', [IndexController::class, 'getConvertedAmount'])->name('get.converted.amount');
+
 // Wave routes
 // Wave::routes();

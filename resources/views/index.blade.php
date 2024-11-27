@@ -30,20 +30,7 @@
     <div class="container">
       <div class="bg-white rounded-lg p-2 md:p-10">
         <div class="flex flex-col md:flex-row">
-          <div data-tab="forex" class="tab-button flex itmes-center justify-center w-full md:w-1/2 p-3 text-center tab-active text-xl cursor-pointer">
-            <svg
-              width="30"
-              height="30"
-              viewBox="0 0 30 30"
-              fill="none"
-              xmlns="http://www.w3.org/2000/svg"
-              class="mr-3"
-              >
-              <path d="M1 12.1999C1 7.55615 4.7562 3.8 9.4 3.8L8.2002 6.19957M29 17.7998C29 22.4435 25.2438 26.1997 20.6 26.1997L21.7998 23.8001M22 7.29995H22.0126M8 22.6997H8.0126M22.35 1.72243C24.912 0.665447 27.1688 1.01684 28.391 1.24084C28.7396 1.30524 29 1.64683 29 2.04303V11.0869C29 11.5601 28.6332 11.9129 28.216 11.8401C26.9616 11.6175 24.7958 11.3431 22.35 12.3511C19.7208 13.4361 17.0748 13.6391 15.63 13.5943C15.2716 13.5831 15 13.2443 15 12.8383V3.7944C15 3.32821 15.357 2.96141 15.7714 2.96841C17.2414 2.99641 19.8034 2.77242 22.35 1.72243ZM8.35 17.1222C10.912 16.0652 13.1674 16.4166 14.391 16.6406C14.7396 16.705 15 17.0466 15 17.4428V26.4867C15 26.9599 14.6332 27.3127 14.216 27.2399C12.9616 27.0173 10.7958 26.7429 8.35 27.7523C5.7208 28.8358 3.0748 29.0402 1.63 28.994C1.2716 28.9828 1 28.644 1 28.238V19.1928C1 18.7266 1.357 18.3598 1.7714 18.3668C3.2414 18.3948 5.8034 18.1722 8.35 17.1222Z" stroke="#0D8478" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
-            </svg>
-            Forex Card & Cash
-          </div>
-          <div data-tab="send" class="tab-button w-full md:w-1/2 p-3 flex itmes-center justify-center tab-inactive text-xl cursor-pointer">
+          <div data-tab="send" class="tab-button w-full md:w-1/2 p-3 flex itmes-center justify-center tab-active text-xl cursor-pointer">
             <svg
               class="mr-3"
               width="24"
@@ -56,10 +43,23 @@
             </svg>
             Send Money
           </div>
+          <div data-tab="forex" class="tab-button flex itmes-center justify-center w-full md:w-1/2 p-3 text-center tab-inactive text-xl cursor-pointer">
+            <svg
+              width="30"
+              height="30"
+              viewBox="0 0 30 30"
+              fill="none"
+              xmlns="http://www.w3.org/2000/svg"
+              class="mr-3"
+              >
+              <path d="M1 12.1999C1 7.55615 4.7562 3.8 9.4 3.8L8.2002 6.19957M29 17.7998C29 22.4435 25.2438 26.1997 20.6 26.1997L21.7998 23.8001M22 7.29995H22.0126M8 22.6997H8.0126M22.35 1.72243C24.912 0.665447 27.1688 1.01684 28.391 1.24084C28.7396 1.30524 29 1.64683 29 2.04303V11.0869C29 11.5601 28.6332 11.9129 28.216 11.8401C26.9616 11.6175 24.7958 11.3431 22.35 12.3511C19.7208 13.4361 17.0748 13.6391 15.63 13.5943C15.2716 13.5831 15 13.2443 15 12.8383V3.7944C15 3.32821 15.357 2.96141 15.7714 2.96841C17.2414 2.99641 19.8034 2.77242 22.35 1.72243ZM8.35 17.1222C10.912 16.0652 13.1674 16.4166 14.391 16.6406C14.7396 16.705 15 17.0466 15 17.4428V26.4867C15 26.9599 14.6332 27.3127 14.216 27.2399C12.9616 27.0173 10.7958 26.7429 8.35 27.7523C5.7208 28.8358 3.0748 29.0402 1.63 28.994C1.2716 28.9828 1 28.644 1 28.238V19.1928C1 18.7266 1.357 18.3598 1.7714 18.3668C3.2414 18.3948 5.8034 18.1722 8.35 17.1222Z" stroke="#0D8478" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+            Forex Card & Cash
+          </div>
         </div>
 
         <div id="contents">
-          <div data-content="forex" class="tab-content p-2 md:p-5">
+          <div data-content="forex" class="tab-content p-2 md:p-5 hidden">
             <form>
               <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
                 <div class="relative">
@@ -93,34 +93,47 @@
               <button type="submit" class="w-full md:w-1/2 text-xl open-sans-bold font-bold mt-4 px-6 py-2 bg-theme2 text-white !rounded-[11px]">Get Best Rates ></button>
             </form>
           </div>
-          <div data-content="send" class="tab-content p-2 md:p-5 hidden">
-            <form>
+          <div data-content="send" class="tab-content p-2 md:p-5">
+            <form action="{{ route('send-money.store') }}" method="POST">
+              @csrf
               <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
-                <div class="">
-                  <label for="forex-amount" class="block text-sm font-medium text-gray-700">Choose your Travel Destination</label>
-                  <input id="forex-amount" type="number" placeholder="Enter amount" 
-                    class="mt-1 block w-full border border-theme1 h-12 rounded-md p-2 shadow-sm focus:ring-blue-500 focus:border-blue-500">
-                </div>
-                <div class="">
-                  <label for="forex-amount" class="block text-sm font-medium text-gray-700">Choose Product</label>
-                  <input id="forex-amount" type="number" placeholder="Enter amount" 
-                    class="mt-1 block w-full border border-theme1 h-12 rounded-md p-2 shadow-sm focus:ring-blue-500 focus:border-blue-500">
-                </div>
-                <div class="">
-                  <label for="forex-amount" class="block text-sm font-medium text-gray-700">Choose Currency</label>
-                  <input id="forex-amount" type="number" placeholder="Enter amount" 
-                    class="mt-1 block w-full border border-theme1 h-12 rounded-md p-2 shadow-sm focus:ring-blue-500 focus:border-blue-500">
-                </div>
-                <div class="">
-                  <label for="forex-amount" class="block text-sm font-medium text-gray-700">Buy USD</label>
-                  <input id="forex-amount" type="number" placeholder="Enter amount" 
-                    class="mt-1 block w-full border border-theme1 h-12 rounded-md p-2 shadow-sm focus:ring-blue-500 focus:border-blue-500">
-                </div>
+                  <div>
+                    <label for="send_money_to" class="block text-sm font-medium text-gray-700">Send Money To</label>
+                    <select id="send_money_to" name="send_money_to" class="mt-1 block w-full border border-theme1 h-12 rounded-md p-2 shadow-sm focus:ring-blue-500 focus:border-blue-500">
+                        {{-- <option value="">Select a country</option> --}}
+                        @foreach($countries as $country)
+                            <option value="{{ $country->id }}" data-currency="{{ $country->currency }}" {{ $country->id == 233 ? 'selected' : '' }}>{{ $country->name }}</option>
+                        @endforeach
+                    </select>
+                  </div>
+                  <div>
+                      <label for="purpose_of_remittance" class="block text-sm font-medium text-gray-700">Purpose of Remittance</label>
+                      <select id="purpose_of_remittance" name="purpose_of_remittance" class="mt-1 block w-full border border-theme1 h-12 rounded-md p-2 shadow-sm focus:ring-blue-500 focus:border-blue-500">
+                      {{-- <option value="">Purpose of Remittance</option> --}}
+                      @foreach($send_money_options as $send_money_option)
+                          <option value="{{ $send_money_option->id }}">{{ $send_money_option->name }}</option>
+                      @endforeach
+                    </select>
+                  </div>
+                  <div>
+                      <label id="currency-label" for="amount" class="block text-sm font-medium text-gray-700">Send USD</label>
+                      <input id="amount" name="amount" type="number" placeholder="Enter amount" class="mt-1 block w-full border border-theme1 h-12 rounded-md p-2 shadow-sm focus:ring-blue-500 focus:border-blue-500" value="1000">
+                  </div>
+                  <div>
+                    <label for="city" class="block text-sm font-medium text-gray-700">Choose City</label>
+                    <select id="city" name="city" class="mt-1 block w-full border border-theme1 h-12 rounded-md p-2 shadow-sm focus:ring-blue-500 focus:border-blue-500">
+                      {{-- <option value="">Select Your City</option> --}}
+                      @foreach($topcities as $topcity)
+                          <option value="{{ $topcity->id }}">{{ $topcity->city_id }}</option>
+                      @endforeach
+                    </select>
+                  </div>
               </div>
-              <span class="open-sans block mt-2 w-full text-right text-xs text-theme1">is approximately <strong class="text-theme2">84,940 INR</strong></span>
+              <span id="converted-amount" class="open-sans block mt-2 w-full text-right text-xs text-theme1">is approximately <strong class="text-theme2">84,940 INR</strong></span>
               <br />
               <button type="submit" class="w-full md:w-1/2 text-xl open-sans-bold font-bold mt-4 px-6 py-2 bg-theme2 text-white !rounded-[11px]">Get Best Rates ></button>
             </form>
+
           </div>
         </div>
       </div>
@@ -317,4 +330,56 @@
     </div>
   </div>
 </div>
+
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>     
+<script>
+  $(document).ready(function() {
+      function updateCurrencyLabel() {
+        var currency = $('#send_money_to option:selected').data('currency');
+        
+        if (currency) {
+          $('#currency-label').text('Send ' + currency);
+        }
+      }
+
+      updateCurrencyLabel();
+
+      $('#send_money_to').on('change', updateCurrencyLabel);
+  });
+</script>
+<script>
+  $(document).ready(function() {
+      function updateConvertedAmount() {
+        var baseCurrency = $('#send_money_to option:selected').data('currency');
+        var amount = $('#amount').val();
+
+        if (baseCurrency && amount) {
+          $.ajax({
+            url: "{{ route('get.converted.amount') }}",
+            type: "POST",
+            data: {
+                _token: "{{ csrf_token() }}",
+                base_currency: baseCurrency,
+                amount: amount
+            },
+            success: function(response) {
+                if (response.converted) {
+                    $('#converted-amount strong').text(response.converted + ' INR');
+                } else {
+                    $('#converted-amount strong').text('Unable to fetch rate');
+                }
+            },
+            error: function() {
+                $('#converted-amount strong').text('Error fetching rate');
+            }
+          });
+        }
+      }
+
+      updateConvertedAmount();
+
+      $('#send_money_to, #amount').on('change keyup', updateConvertedAmount);
+  });
+</script>
+
 @include('footer')

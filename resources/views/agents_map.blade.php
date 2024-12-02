@@ -45,7 +45,7 @@
 
 
 <script async
-    src="https://maps.googleapis.com/maps/api/js?key=AIzaSyA4R_uxHAuSC_KU8fZ0y7Lf_RB4WDTGMkI&callback=initMap&v={{ time() }}">
+    src="https://maps.googleapis.com/maps/api/js?key={{ env('GOOGLE_MAPS_API_KEY') }}&callback=initMap&v={{ time() }}">
 </script>
 <script>
     window.initMap = function() {

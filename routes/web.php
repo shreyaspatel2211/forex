@@ -38,10 +38,11 @@ Route::get('/admin', [DashboardController::class, 'index'])->name('voyager.dashb
 
 Route::get('/', [IndexController::class, 'index'])->name('home');
 
-Route::get('/service/{id}', [ServiceController::class, 'index'])->name('service.show');
+Route::get('/service/{slug}', [ServiceController::class, 'index'])->name('service.show');
 Route::get('/support', [ContactUsController::class, 'index'])->name('support');
-Route::get('/agent', [AgentController::class, 'index'])->name('agent');
+Route::get('/join-now', [AgentController::class, 'index'])->name('agent');
 Route::get('/about', [AboutController::class, 'index'])->name('about');
+Route::get('/agents', [AgentController::class, 'AgentsWithMap'])->name('agent-map');
 
 Route::get('/privacypolicy', function () {
     return view('privacy_policy');
@@ -52,6 +53,8 @@ Route::get('/termsandcondition', function () {
 Route::post('/forex-transactions', [SendMoneyAbroadController::class, 'store'])->name('send-money.store');
 
 Route::post('/get-converted-amount', [IndexController::class, 'getConvertedAmount'])->name('get.converted.amount');
+
+Route::post('/agents/store', [AgentController::class, 'store'])->name('agents.store');
 
 // Wave routes
 // Wave::routes();

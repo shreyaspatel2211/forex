@@ -8,11 +8,12 @@ use App\Models\Review;
 use App\Models\Service;
 use App\Models\Country;
 use App\Models\TopCity;
+use App\Models\Faq;
 use App\Models\SendMoneyOption;
 
 class ServiceController extends Controller
 {
-    public function index($id)
+    public function index($slug)
     {
         $top_features = Feature::where('top_bottom', 'top')->get();
 
@@ -29,12 +30,15 @@ class ServiceController extends Controller
         $countries = Country::where('show_in_send_money_form', 1)->get();
         $topcities = TopCity::all();
         $send_money_options = SendMoneyOption::all();
+        $id = Service::where('slug', $slug)->value('id');
 
         $services = Service::findOrFail($id);
         $transfer_money_to_countries = Country::where('transfer_money', 1)->get();
         $availabel_for_direct_outward_remittence = Country::where('availabel_for_direct_outward_remittence', 1)->get();
 
-        return view('service', compact(
+        $faqs = Faq::where('service_id', $id)->get();
+
+        return view('service_new', compact(
             'top_features',
             'firstPart', 
             'secondPart', 
@@ -46,7 +50,8 @@ class ServiceController extends Controller
             'send_money_options',
             'availabel_for_direct_outward_remittence',
             'transfer_money_to_countries',
-            'services'
+            'services',
+            'faqs'
         ));
     }
 }

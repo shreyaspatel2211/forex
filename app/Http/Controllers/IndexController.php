@@ -23,7 +23,7 @@ class IndexController extends Controller
 
         $reviews = Review::get();
 
-        $popular_services = Service::where('service_type', 'popular_services')->get();
+        $popular_services = Service::where('service_type', 'popular_services')->orderBy('order', 'asc')->get();
         $study_abroad_services = Service::where('service_type', 'study_abroad')->get();
 
         $countries = Country::where('show_in_send_money_form', 1)->get();

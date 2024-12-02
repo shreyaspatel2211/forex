@@ -1,7 +1,8 @@
 @include('header')
+<div class="page px-4 md:px-6">
+  <!-- Your content here -->
 
-<div class="page">
-  <!-- banner section -->
+      <!-- banner section -->
   <div class="container">
     <div class="flex flex-col md:flex-row items-center py-5">
       <div class="w-full md:w-1/2">
@@ -25,7 +26,7 @@
     </div>
   </div>
   <!-- banner section -->
-
+  
   <!-- sell currency form -->
   <div class="bg-theme1 p-3 py-5 md:py-0 md:p-[64px]">
     <div class="container">
@@ -44,7 +45,7 @@
             </svg>
             Send Money
           </div>
-          {{-- <div data-tab="forex" class="tab-button flex itmes-center justify-center w-full md:w-1/2 p-3 text-center tab-inactive text-xl cursor-pointer">
+          <div data-tab="forex" class="tab-button flex itmes-center justify-center w-full md:w-1/2 p-3 text-center tab-inactive text-xl cursor-pointer">
             <svg
               width="30"
               height="30"
@@ -56,7 +57,7 @@
               <path d="M1 12.1999C1 7.55615 4.7562 3.8 9.4 3.8L8.2002 6.19957M29 17.7998C29 22.4435 25.2438 26.1997 20.6 26.1997L21.7998 23.8001M22 7.29995H22.0126M8 22.6997H8.0126M22.35 1.72243C24.912 0.665447 27.1688 1.01684 28.391 1.24084C28.7396 1.30524 29 1.64683 29 2.04303V11.0869C29 11.5601 28.6332 11.9129 28.216 11.8401C26.9616 11.6175 24.7958 11.3431 22.35 12.3511C19.7208 13.4361 17.0748 13.6391 15.63 13.5943C15.2716 13.5831 15 13.2443 15 12.8383V3.7944C15 3.32821 15.357 2.96141 15.7714 2.96841C17.2414 2.99641 19.8034 2.77242 22.35 1.72243ZM8.35 17.1222C10.912 16.0652 13.1674 16.4166 14.391 16.6406C14.7396 16.705 15 17.0466 15 17.4428V26.4867C15 26.9599 14.6332 27.3127 14.216 27.2399C12.9616 27.0173 10.7958 26.7429 8.35 27.7523C5.7208 28.8358 3.0748 29.0402 1.63 28.994C1.2716 28.9828 1 28.644 1 28.238V19.1928C1 18.7266 1.357 18.3598 1.7714 18.3668C3.2414 18.3948 5.8034 18.1722 8.35 17.1222Z" stroke="#0D8478" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
             </svg>
             Forex Card & Cash
-          </div> --}}
+          </div>
         </div>
 
         @if(session('success'))
@@ -65,7 +66,7 @@
             </script>
         @endif
         <div id="contents">
-          {{-- <div data-content="forex" class="tab-content p-2 md:p-5 hidden">
+          <div data-content="forex" class="tab-content p-2 md:p-5 hidden">
             <form>
               <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
                 <div class="relative">
@@ -98,7 +99,7 @@
               <br />
               <button type="submit" class="w-full md:w-1/2 text-xl open-sans-bold font-bold mt-4 px-6 py-2 bg-theme2 text-white !rounded-[11px]">Get Best Rates ></button>
             </form>
-          </div> --}}
+          </div>
           <div data-content="send" class="tab-content p-2 md:p-5">
             <form action="{{ route('send-money.store') }}" method="POST">
               @csrf
@@ -176,136 +177,56 @@
           </div>
         </div>
       </div>
-      {{-- <a href="#" class="text-theme2 w-full text-lg text-center my-2">{{ setting('home-page.sell_currency_title') }}</a>
+      <a href="#" class="text-theme2 w-full text-lg text-center my-2">{{ setting('home-page.sell_currency_title') }}</a>
       <div class="flex flex-col md:flex-row items-center justify-center text-white">{{ setting('home-page.bank_description') }}
         <div class="flex items-center ml-2 my-2 space-x-3">
           <img src="{{ Voyager::image(setting('home-page.bank_logo_one')) }}" alt="">
           <img src="{{ Voyager::image(setting('home-page.bank_logo_two')) }}" alt="">
         </div>
-      </div> --}}
+      </div>
     </div>
   </div>
   <!-- sell currency form -->
 
-  <!-- what we do -->
-  <div class="bg-white p-4 md:p-10">
-    <div class="container">
-      <div class="flex flex-col md:flex-row items-end justify-between">
-        <h2 class="w-full md:w-1/2 mb-3 md:mb-0 text-[42px] md:text-[72px] gadugi-bold text-theme1 title-shadow">What We Do,</h2>
-        <div class="w-full md:w-1/2 flex justify-end flex-col md:flex-row">
-          <div data-tab="popularService" class="whatWeButton flex itmes-center mb-2 md:mb-0 md:justify-center px-3 text-center tab-active text-xl cursor-pointer">
-            <svg
-              width="40"
-              height="40"
-              viewBox="0 0 40 40"
-              fill="none" 
-              xmlns="http://www.w3.org/2000/svg"
-            >
-              <path d="M4.16699 5.00331H35.8337M7.50033 5.00331V23.3333C7.50033 27.215 8.21699 28.4833 11.547 30.48L16.5703 33.4933C18.242 34.5 19.077 35 20.0003 35C20.9237 35 21.7587 34.4983 23.4303 33.495L28.4553 30.48C31.782 28.4833 32.5003 27.2166 32.5003 23.335V5.00165" stroke="#0D8478" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-              <path d="M21.0082 13.3417L22.0332 15.4133C22.1202 15.5685 22.2389 15.7037 22.3816 15.8099C22.5244 15.9162 22.6879 15.9912 22.8615 16.03L24.7232 16.3417C25.9132 16.5417 26.1932 17.4117 25.3348 18.27L23.8882 19.7283C23.7611 19.8721 23.6678 20.0426 23.6153 20.2272C23.5629 20.4118 23.5524 20.6058 23.5848 20.795L23.9998 22.5983C24.3265 24.0283 23.5732 24.5817 22.3198 23.8333L20.5765 22.7933C20.3982 22.7004 20.2001 22.6519 19.999 22.6519C19.7979 22.6519 19.5998 22.7004 19.4215 22.7933L17.6765 23.8333C16.4282 24.58 15.6698 24.0217 15.9965 22.6L16.4115 20.7933C16.4437 20.6044 16.4331 20.4107 16.3806 20.2264C16.3281 20.0422 16.235 19.872 16.1082 19.7283L14.6615 18.27C13.8098 17.4117 14.0832 16.5417 15.2732 16.3417L17.1348 16.03C17.3073 15.9903 17.4695 15.9149 17.611 15.8087C17.7525 15.7025 17.8702 15.5678 17.9565 15.4133L18.9832 13.3417C19.5432 12.22 20.4548 12.22 21.0082 13.3417Z" stroke="#0D8478" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-            </svg>
-            Popular Service
-          </div>
-          <div data-tab="studyAbroad" class="whatWeButton px-3 flex itmes-center mb-2 md:mb-0 md:justify-center tab-inactive text-xl cursor-pointer">
-            <svg  
-              width="31"
-              height="31"
-              viewBox="0 0 31 31"
-              fill="none"
-              xmlns="http://www.w3.org/2000/svg"
-            >
-              <path d="M23.1167 24.1672L20.7917 13.5755L25.3125 9.05469C27.25 7.11719 27.8958 4.53385 27.25 3.24219C25.9583 2.59635 23.375 3.24219 21.4375 5.17969L16.9167 9.70052L6.325 7.37552C5.67917 7.24635 5.1625 7.50469 4.90417 8.02135L4.51667 8.66719C4.25833 9.31302 4.3875 9.95885 4.90417 10.3464L11.75 14.8672L9.16667 18.7422H5.29167L4 20.0339L7.875 22.6172L10.4583 26.4922L11.75 25.2005V21.3255L15.625 18.7422L20.1458 25.588C20.5333 26.1047 21.1792 26.2339 21.825 25.9755L22.4708 25.7172C22.9875 25.3297 23.2458 24.813 23.1167 24.1672Z" stroke="black" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
-            </svg>
-            Study Abroad
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-  <div class="bg-theme2 md:p-7">
-    <div class="container">
-      <div id="contents">
-        <div data-content="popularService" class="whatWetab-content p-2 md:!p-5 md:!pb-9">
-          <p class="text-white text-lg mb-6 gadugi-bold">Complete suite of services for Indian travelers, expats, and students—covering currency exchange, money transfers, visa assistance and student account opening.</p>
-          <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-12">
-            @foreach($popular_services as $service)
-              <div class="flex items-center bg-theme1 !rounded-[17px] p-4 mb-2">
-                <div class="w-1/2">
-                  <h4 class="open-sans-bold text-white text-[30px] mb-9">{{ $service->title }}</h4>
-                  <p class="text-white text-base">{{ $service->desc_for_listing }}</p>
-                </div>
-                <div class="w-1/2 text-right">
-                  <img class="w-[120px] ml-auto mb-3" src="{{ Voyager::image($service->image) }}" alt="">
-                  @if($service->want_button == 1)
-                    <a href="{{ route('service.show', $service->slug) }}" class="bg-theme2 text-theme1 hover:text-white rounded-full px-3 py-2 gadugi-bold" >View More  ></a>
-                  @endif
-                </div>
-              </div>
-            @endforeach
-          </div>
-        </div>
-        <div data-content="studyAbroad" class="whatWetab-content p-2 md:!p-5 md:!pb-9 hidden">
-          <p class="text-white text-lg mb-6 gadugi-bold">Study Abroad</p>
-          <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-12">
-            @foreach($study_abroad_services as $service)
-              <div class="flex items-center bg-theme1 !rounded-[17px] p-4 mb-2">
-                <div class="w-1/2">
-                  <h4 class="open-sans-bold text-white text-[30px] mb-9">{{ $service->title }}</h4>
-                  <p class="text-white text-base">{{ $service->desc_for_listing }}</p>
-                </div>
-                <div class="w-1/2 text-right">
-                  <img class="w-[120px] ml-auto mb-3" src="{{ Voyager::image($service->image) }}" alt="">
-                  @if($service->want_button == 1)
-                    <a href="#" class="bg-theme2 text-theme1 hover:text-white rounded-full px-3 py-2 gadugi-bold" >View More  ></a>
-                  @endif
-                </div>
-              </div>
-            @endforeach
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-  <!-- what we do -->
 
-  <!-- What we Provide you ! -->
-  <div class="bg-white py-12">
-    <div class="container">
-      <div class="flex mb-8">
-        <h2 class="w-full mb-3 md:mb-0 text-[42px] md:text-[72px] gadugi-bold text-theme1 title-shadow">What we Provide you !</h2>
-      </div>
-      <div class="flex flex-col md:flex-row items-center gap-8">
-        <div class="w-full md:w-2/3">
-          @foreach($firstPart as $feature)
-            <div class="flex items-center px-4 py-2 md:py-3 border-[6px] border-[#001E3769] mb-6 md:mb-[46px] rounded-full">
-              <img class="w-[68px] md:w-[100px] mr-3" src="{{ Voyager::image($feature->image) }}" alt="">
-              <div class="text-theme1">
-                <div class="mb-2 text-lg gadugi-bold">{{ $feature->title }}</div>
-                <p class="text-xs">{{ $feature->description }}</p>
-              </div>
-            </div>
-          @endforeach
+    <!-- What we Provide you ! -->
+    <div class="bg-white py-12">
+      <div class="container">
+        <div class="flex mb-8">
+          <h2 class="w-full mb-3 md:mb-0 text-[42px] md:text-[72px] gadugi-bold text-theme1 title-shadow">What we Provide you !</h2>
         </div>
-        <div class="w-full md:w-2/3 flex justify-center text-center">
-          <div class="w-[290px] h-[290px] md:w-[390px] md:h-[390px] flex justify-center items-center border-[6px] border-[#001E3769] rounded-full">
-            <img class="w-[150px] md:w-[250px]" src="{{ asset('dist/assets/images/logo-only.svg') }}" alt="">
+        <div class="flex flex-col md:flex-row items-center gap-8">
+          <div class="w-full md:w-2/3">
+            @foreach($firstPart as $feature)
+              <div class="flex items-center px-4 py-2 md:py-3 border-[6px] border-[#001E3769] mb-6 md:mb-[46px] rounded-full">
+                <img class="w-[68px] md:w-[100px] mr-3" src="{{ Voyager::image($feature->image) }}" alt="">
+                <div class="text-theme1">
+                  <div class="mb-2 text-lg gadugi-bold">{{ $feature->title }}</div>
+                  <p class="text-xs">{{ $feature->description }}</p>
+                </div>
+              </div>
+            @endforeach
           </div>
-        </div>
-        <div class="w-full md:w-2/3">
-          @foreach($secondPart as $feature)
-            <div class="flex items-center px-4 py-2 md:py-3 border-[6px] border-[#001E3769] mb-6 md:mb-[46px] rounded-full">
-              <img class="w-[68px] md:w-[100px] mr-3" src="{{ Voyager::image($feature->image) }}" alt="">
-              <div class="text-theme1">
-                <div class="mb-2 text-lg gadugi-bold">{{ $feature->title }}</div>
-                <p class="text-xs">{{ $feature->description }}</p>
-              </div>
+          <div class="w-full md:w-2/3 flex justify-center text-center">
+            <div class="w-[290px] h-[290px] md:w-[390px] md:h-[390px] flex justify-center items-center border-[6px] border-[#001E3769] rounded-full">
+              <img class="w-[150px] md:w-[250px]" src="{{ Voyager::image(setting('site.favicon')) }}" alt="">
             </div>
-          @endforeach
+          </div>
+          <div class="w-full md:w-2/3">
+            @foreach($secondPart as $feature)
+              <div class="flex items-center px-4 py-2 md:py-3 border-[6px] border-[#001E3769] mb-6 md:mb-[46px] rounded-full">
+                <img class="w-[68px] md:w-[100px] mr-3" src="{{ Voyager::image($feature->image) }}" alt="">
+                <div class="text-theme1">
+                  <div class="mb-2 text-lg gadugi-bold">{{ $feature->title }}</div>
+                  <p class="text-xs">{{ $feature->description }}</p>
+                </div>
+              </div>
+            @endforeach
+          </div>
         </div>
       </div>
     </div>
-  </div>
-  <!-- What we Provide you ! -->
+    <!-- What we Provide you ! -->
 
   <!-- Reviews -->
   <div class="container">
@@ -339,8 +260,8 @@
                             <i class="fas fa-star text-[#CEC9C1]"></i>
                         @endif
                     @endfor
-                  </div>
                 </div>
+              </div>
               </div>
               <div>
                 <p class="text-theme1 text-sm open-sans">{{ $review->comment }}</p>
@@ -348,24 +269,82 @@
             </div>
           </div>
         @endforeach
-        <!-- Add more slider items as needed -->
       </div>
     </div>
   </div>
   <!-- Reviews -->
+      
+  @if($services->transfer_money_to_countries == 1)
+    <div class="container">
+      <!-- Transfer Money to 100+ Countries Heading -->
+      <div class="flex mb-8 justify-center">
+        <h2 class="w-full mb-3 md:mb-0 text-[rgb(0,30,55)] font-gadugi font-bold text-[32px] md:text-[52px] custom-text-shadow text-left ml-[20px]">
+          Transfer Money to 100+ Countries
+        </h2>
+      </div>
+  
+      <!-- Cards Container -->
+      <div class="flex justify-center items-center flex-wrap gap-4">
+          <!-- Card 1 -->
+          @foreach($transfer_money_to_countries as $transfer_money_to_countrie)
+          <div class="flex items-center bg-white shadow-md w-[170px] h-[100px]">
+              <div class="flex flex-col items-center w-[70px]">
+                  <span class="text-[24px]">{{ $transfer_money_to_countrie->emoji }}</span>
+                  {{-- <img src="{{ $transfer_money_to_countrie->emoji }}" alt="Flag" class="w-[50px] h-[35px] object-cover mb-1"> --}}
+                  <p class="text-[#001E37] font-bold text-[14px]">{{ $transfer_money_to_countrie->iso3 }}</p>
+              </div>
+              <div class="ml-auto bg-teal-500 flex items-center justify-center w-[40px] h-[100px]">
+                  <span class="text-white text-lg font-bold">&gt;</span>
+              </div>
+          </div>
+          @endforeach
+      </div>
+    </div>
+  @endif
   
   
-  <!-- bottom links -->
+  
+  <section class="w-full px-5 sm:px-12 md:px-24 mt-12 customMd:mt-24">
+    {!! $services->long_description !!}
+  </section>
+
+  @if($services->transfer_money_to_countries == 1)
+    <div class="flex mb-8 mt-10 pl-4 justify-center">
+      <h2 class="w-full mb-3 md:mb-0 text-[rgb(0,30,55)] font-gadugi font-bold text-[32px] md:text-[52px] custom-text-shadow text-center">
+        Currencies available for making a direct Outward Remittance
+      </h2>
+    </div>
+    <div class="bg-[#001E37] py-10 px-4 sm:px-6 md:px-8 flex justify-center items-center"> <!-- Centered Container -->
+      <!-- Cards (Centered) -->
+      <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6 justify-items-center"> 
+          <!-- Card 1 -->
+          @foreach($transfer_money_to_countries as $transfer_money_to_countrie)
+          <div class="bg-[#02C7B3] border-4 border-dotted border-[#001E37] w-[180px] h-[120px] flex flex-col justify-between p-3">
+              <div class="flex items-center justify-between">
+                  <span class="text-[24px]">{{ $transfer_money_to_countrie->emoji }}</span>
+                  {{-- <img src="{{ $transfer_money_to_countrie->emoji }}" alt="Flag" class="w-[80%] h-[50%]" /> --}}
+                  <div class="ml-4 text-[#001E37] font-bold text-[14px]">{{ $transfer_money_to_countrie->iso3 }}</div>
+              </div>
+              <div class="bg-[#003B3C] text-white text-[12px] text-center py-1 mt-2">
+                {{ $transfer_money_to_countrie->currency_name }}
+              </div>
+          </div>
+          @endforeach
+      </div>
+    </div>
+  @endif
+
+  
+
+  
   <div class="bg-white py-4">
     <div class="container mx-auto flex justify-between items-center">
-      <!-- Logo -->
       <div class="text-white font-bold text-xl">
         <a href="#" class="w-[160px] md:w-[212px]">
           <img src="{{ Voyager::image(setting('site.logo')) }}" alt="">
         </a>
       </div>
       
-      <!-- Navbar (Desktop) -->
       <nav class="flex flex-row space-x-2 md:space-x-8">
         <a href="#" class="text-theme1 open-sans-semibold">Blogs</a>
         <a href="#" class="text-theme1 open-sans-semibold">Offers</a>
@@ -373,9 +352,9 @@
       </nav>
     </div>
   </div>
-</div>
 
-{{-- <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script> --}}
+  
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/js/toastr.min.js"></script>
     
 @if(session('success'))
@@ -442,4 +421,10 @@
   });
 </script>
 
-@include('footer')
+  <!-- Footer -->
+  @include('footer')
+
+
+
+
+        

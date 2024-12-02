@@ -43,8 +43,8 @@
         <nav class="hidden md:flex space-x-8">
           <a href="#" class="text-theme1 open-sans-semibold">CurrencyExchange</a>
           <a href="#" class="text-theme1 open-sans-semibold">Forexcard</a>
-          <a href="#" class="text-theme1 open-sans-semibold">MoneyTransfer</a>
-          <a href="#" class="text-theme1 open-sans-semibold">Support</a>
+          <a href="{{ route('service.show', 7) }}" class="text-theme1 open-sans-semibold">MoneyTransfer</a>
+          <a href="{{ route('support') }}" class="text-theme1 open-sans-semibold">Support</a>
           <a href="{{ route('voyager_login') }}" class="text-theme1 open-sans-semibold">Login</a>
         </nav>
         

@@ -25,7 +25,7 @@
           <div class="w-full md:w-1/5">
             <h3 class="text-white text-[24px] gadugi-bold mb-4">Quick Links</h3>
             <ul>
-              <li><a href="http://">About US</a></li>
+              <li><a href="{{ route('about') }}">About US</a></li>
               <li><a href="http://">Forex Rates Today</a></li>
               <li><a href="http://">About US</a></li>
               <li><a href="http://">Currency Converter</a></li>

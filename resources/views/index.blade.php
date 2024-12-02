@@ -236,7 +236,7 @@
                 </div>
                 <div class="w-1/2 text-right">
                   <img class="w-[120px] ml-auto mb-3" src="{{ Voyager::image($service->image) }}" alt="">
-                  <a href="#" class="bg-theme2 text-theme1 hover:text-white rounded-full px-3 py-2 gadugi-bold" >Buy Now  ></a>
+                  <a href="{{ route('service.show', $service->id) }}" class="bg-theme2 text-theme1 hover:text-white rounded-full px-3 py-2 gadugi-bold" >Buy Now  ></a>
                 </div>
               </div>
             @endforeach
@@ -349,7 +349,8 @@
     </div>
   </div>
   <!-- Reviews -->
-
+  
+  
   <!-- bottom links -->
   <div class="bg-white py-4">
     <div class="container mx-auto flex justify-between items-center">

@@ -8,7 +8,6 @@ class ContactUsController extends Controller
 {
     public function index(Request $request)
     {
-       
-        return view('contact_us');
+        return view('support');
     }
 }
